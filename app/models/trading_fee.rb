@@ -38,7 +38,7 @@ class TradingFee < ApplicationRecord
   # == Constants ============================================================
 
   # For fee we define static precision - 4.
-  FEE_PRECISION = 2
+  FEE_PRECISION = 6
 
   MIN_FEE = 0
   MAX_FEE = 0.5
