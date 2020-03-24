@@ -36,6 +36,7 @@ def daemon(name, options = {})
 
     # In production Docker environment logs go to /dev/stdout.
     if RAILS_ENV == 'production'
+      # w.log = "#{RAILS_ROOT}/log/daemons/#{filesafe_name}.log"
       w.log_cmd = "#{RAILS_ROOT}/bin/logger #{name.shellescape}"
     #
     # In non-production environment logs go to files.
