@@ -93,13 +93,10 @@ module API
 
           withdraw = Withdraw.find(declared_params[:id])
 
-          puts "Declared Params"
-
-          puts "#{declared_params}"
-
-          puts "withdraw"
-
-          puts "#{withdraw}"
+          Rails.logger.warn "Declared Params"
+          Rails.logger.warn "#{declared_params}"
+          Rails.logger.warn "withdraw"
+          Rails.logger.warn "#{withdraw}"
 
           if withdraw.fiat? && declared_params[:txid].present?
             error!({ errors: ['admin.withdraw.redundant_txid'] }, 422)
