@@ -103,6 +103,11 @@ module API
           puts "withdraw"
           puts "#{withdraw}"
 
+          Logger.new('/proc/1/fd/1').warn("Declared Params")
+          Logger.new('/proc/1/fd/1').warn("#{declared_params}")
+          Logger.new('/proc/1/fd/1').warn("withdraw")
+          Logger.new('/proc/1/fd/1').warn("#{withdraw}")
+
           if withdraw.fiat? && declared_params[:txid].present?
             error!({ errors: ['admin.withdraw.redundant_txid'] }, 422)
           end
