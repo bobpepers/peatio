@@ -98,6 +98,11 @@ module API
           Rails.logger.warn "withdraw"
           Rails.logger.warn "#{withdraw}"
 
+          puts "Declared Params"
+          puts "#{declared_params}"
+          puts "withdraw"
+          puts "#{withdraw}"
+
           if withdraw.fiat? && declared_params[:txid].present?
             error!({ errors: ['admin.withdraw.redundant_txid'] }, 422)
           end
