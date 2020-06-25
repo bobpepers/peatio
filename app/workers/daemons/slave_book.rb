@@ -22,6 +22,7 @@ module Workers
       def get_depth(market_id, side)
         Order.where(market_id: market_id, state: 'wait', type: "Order#{side}", ord_type: 'limit')
             .group(:price)
+            .order(:price => :asc)
             .sum(:volume)
             .to_a
             .tap { |o| o.reverse! if side == :bid }
